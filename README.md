@@ -46,7 +46,7 @@ trained our model on the remaining edge weights and then computed the test loss 
 and a simpler Graph Neural Network approach that uses GCN layers instead of GraphSAGE, does not differentiate between white and black pieces and does not propagate information in both edge directions.
 
 ## Results
-<img width="250" alt="image" src="https://github.com/Charbel-11/Chess-Game-Predictor/assets/61922252/3af238e8-f8fe-4b94-823e-fb5f25bd7bb3">
+<img width="250" alt="image" src="https://github.com/Charbel-11/Chess-Game-Predictor/assets/61922252/f3e620d4-cbb8-40c8-8a6c-219473d1a256">
 
 * Overall, it is clear that Graph Neural Network methods outperformed the matrix completion baseline which only was 29% accurate. 
 The standard GCN model performed better with a 62.33% accuracy but still was no match compared to the SAGE Encoder-Decoder model which reached an accuracy of 91%.  
