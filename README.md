@@ -50,7 +50,7 @@ and a simpler Graph Neural Network approach that uses GCN layers instead of Grap
 
 * Overall, it is clear that Graph Neural Network methods outperformed the matrix completion baseline which only was 29% accurate. 
 The standard GCN model performed better with a 62.33% accuracy but still was no match compared to the SAGE Encoder-Decoder model which reached an accuracy of 91%.  
-* Note that the SAGE Encoder-Decoder model generates node embeddings, which can be leveraged for various other tasks, such as ranking players.
+* Note that the SAGE Encoder-Decoder model generates node embeddings which can be leveraged for various other tasks (e.g., ranking players).
 
 
 ## References
