@@ -7,6 +7,10 @@ This project was done in collaboration with Hadi Hammoud.
 * By modeling these games as directed weighted graphs, we first analyze their underlying structures to identify the optimal architecture for our prediction task. 
 * We then achieve the best results using an Encoder-Decoder architecture with GraphSAGE convolutional layers along with multiple improvements made to the standard approach.
 
+## Modeling the Dataset using Graphs
+* We first define a directed graph $G_i=(V_i,E_i)$ for each month $i=1,...,100$, where each node $v \in V_i$ represents a player (with its unique ID) and a directed edge $(u,v)\in E_i$ represents a game between player $u$ and player $v$ where player $u$ had the white pieces.
+* The weight $w$ of an edge $(u,v)\in E_i$ is the mean score of the similar games between $u$ and $v$ in month $i$, where $w=1$ implies the victory of $u$, $w=0$ implies the victory of $v$, and  $w=0.5$ implies a tie.
+
 ## Main Architecture
 We implemented an encoder-decoder architecture with GraphSAGE [2] convolutional layers. 
 
