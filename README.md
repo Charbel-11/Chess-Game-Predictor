@@ -24,7 +24,7 @@ We end up with two node embeddings per node. We combine those by simply adding t
 
 ### Decoder
 * For the decoder, we first get an embedding for every edge by concatenating the corresponding node embeddings of the endpoints. 
-* The embedding is then passed into an MLP with a sigmoid function at the end. We end up with one feature per edge (u, v), which we interpret as the probability that u wins against v.
+* The embedding is then passed into an MLP with a sigmoid function at the end. We end up with one feature per edge $(u, v)$, which we interpret as the probability that $u$ wins against $v$.
 
 ### Exploiting Temporal Data
 * To tackle our initial task which is link prediction in month 100 (the last month), we could use the corresponding edge weights returned by our model on the graph of that month. However, this wouldn’t have fully exploited the data available in the other months. In fact, the training would have remained the same if we permuted the months. 
