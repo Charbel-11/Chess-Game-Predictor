@@ -1,4 +1,4 @@
-# Chess Game Predictor
+# Predicting Chess Games Outcomes
 
 ## Overview
 This project was done in collaboration with Hadi Hammoud. 
@@ -21,6 +21,15 @@ We end up with two node embeddings per node. We combine those by simply adding t
 ### Decoder
 * For the decoder, we first get an embedding for every edge by concatenating the corresponding node embeddings of the endpoints. 
 * The embedding is then passed into an MLP with a sigmoid function at the end. We end up with one feature per edge (u, v), which we interpret as the probability that u wins against v.
+
+### Exploiting Temporal Data
+* To tackle our initial task which is link prediction in month 100 (the last month), we could use the corresponding edge weights returned by our model on the graph of that month. However, this wouldn’t have fully exploited the data available in the other months. In fact, the training would have remained the same if we permuted the months. 
+* Instead, we tried to decrease the noise of our predictions by combining the embeddings of players during the last two months they played in.
+* Our final embedding is a convex combination of the different embeddings. We tried the following approaches to get the coefficients of $n=2$ different months, and kept the best one:
+  * Simple Moving Average: Give a weight of 1 for all months
+  * Weighted Moving Average: Give a weight of $i$ to the $i$-th ranked month (where higher ranked months are more recent)
+  * Exponential Moving Average: Give a weight of $(1 − \frac{2}{n+1})^{n−i}$ for the $i$-th ranked month
+  * Non Moving Average: Give a weight of 1 for the last month and 0 for the others
 
 ## Training
 * We train our model by comparing the edge weights we get from the network with the available edge weights in the graphs.
